@@ -1,12 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 body {
   margin: 0;
   padding: 0;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
   background: gray;
   margin-bottom: 0;
   color: #fff;
-  overflow: hidden;
 }
+
 body::before {
   content: "";
   position: fixed;
@@ -14,11 +17,12 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url(/src/images/WallpaperJapanese.jpg) no-repeat center
+  background: url(/src/images/wallpaper-japanese.jpg) no-repeat center
     center/cover;
   filter: blur(10px);
   z-index: -1;
 }
+
 header {
   text-align: center;
   display: flex;
@@ -51,9 +55,11 @@ ul {
   list-style-type: none;
   margin: 0 auto;
   padding: 2em;
-  width: 500px;
-  height: 200px;
   justify-content: center;
+}
+
+ul > li {
+  margin-bottom: 0.03em;
 }
 
 .personal {
@@ -63,34 +69,44 @@ ul {
 }
 
 .padre {
+  width: 100%;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 
-.hijo,
-.hijo2 {
-  width: 410px;
-  min-width: 250px;
+.padre > div {
   background-color: rgba(26, 80, 73, 0.667);
   backdrop-filter: blur(10px) saturate(260%) contrast(180%);
   z-index: -1;
   border-radius: 20px;
-  padding: -4000px;
   margin: 10px;
 }
-@media (max-width: 350px) {
-  .hijo, .hijo2 {
-    width: 100%;
+
+@media (max-width: 1128px) {
+  .padre {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .padre > div {
+    max-width: 300px;
   }
 }
+
+@media (min-width: 800px) {
+  .padre > div {
+    width: 50%;
+  }
+}
+
 .socials {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
 .socials a {
@@ -113,9 +129,20 @@ ul {
 .credit {
   color: black;
   text-align: center;
-  margin-top: 60px;
+  margin-top: 10px;
 }
 
 .credit u {
   color: blue;
+}
+
+
+@media (min-width: 1128px) {
+  .credit {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+  }
 }
